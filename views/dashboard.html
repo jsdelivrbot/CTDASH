@@ -1,0 +1,48 @@
+<div  ng-controller="dashController">
+	<px-view-header title="ORDER MANAGMENT SYSTEM"></px-view-header>
+	<div>
+		<px-fourup id="widget-4" widget-header="DASHBOARD" widget-icon="fa-tachometer">
+			<div class="widget-1 col_1">
+				<h4>TOTAL ORDER :{{totOrder}}</h4>
+				<px-spinner size="100"></px-spinner>
+				<div style='width:450px' id="piechart" ng-show="show_pie_error == 0">
+					<px-vis-pie-chart chart-data='{{chartCount}}' width="auto" height="350" register-config='{"width":150,"type":"vertical"}' margin='{"top":"10","bottom":"10","left":"0","right":"0"}' series-config='{"mySerie":{"xAxisUnit":"","y":"y","x":"x"}}'></px-vis-pie-chart>
+				</div>
+				<div ng-show="show_pie_error == 1">{{pie_error_msg}}</div>
+			</div>
+			<div class="widget-2 col_2">
+				<h4>ORDER PERCENTAGE</h4>
+				<px-spinner size="100"></px-spinner>
+				<div ng-show="show_perc_error == 0">
+				<px-simple-horizontal-bar-chart width="auto" height="200" bar-labels="percentage" colors='{{chart_colors}}'
+				legend-labels='{{chart_labels}}' chart-data='{{chartPerct}}'>
+				</px-simple-horizontal-bar-chart>
+				</div>
+				<div ng-show="show_perc_error == 1">{{perc_error_msg}}</div>
+			</div>
+			<div class="widget-3 col_3">
+				<h4>WEEKLY ORDER STATUS</h4>
+				<px-spinner size="100"></px-spinner>
+				<div ng-show="show_week_error == 0"><center>
+				<px-tooltip tooltip-message="past 6 weeks orders">	</px-tooltip>
+				<px-simple-bar-chart width="auto" height="250" chart-data='{{weekCount}}' colors='{{chart_colors}}' 
+				legend-labels='{{chart_labels}}' legend-order="sequential">
+				</px-simple-bar-chart>
+			
+				<div>
+				  <small>Past 6 Weeks</small>
+				</div>
+				</center>
+				</div>
+				<div ng-show="show_week_error == 1">{{week_error_msg}}</div>
+			</div>
+			<div class="widget-4 col_4">
+				<h4>TARGET ACHIVED</h4>
+				<px-spinner size="100"></px-spinner>
+				<center><px-percent-circle val="{{chart_circle}}" max="{{circle_max}}" thickness="30" style="height:200px;width:300px">
+				</px-percent-circle>
+				</center>
+			</div>
+		</px-fourup>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+{
+  "orders":{
+	  "pending":{
+		"week_1": 30,
+		"week_2": 40,
+		"week_3": 20,
+		"week_4":10,
+		"week_5":20,
+		"week_6":10
+	  },
+	  "processed":{
+		"week_1": 40,
+		"week_2":30,
+		"week_3": 20,
+		"week_4":20,
+		"week_5":20,
+		"week_6":20
+	  },
+	  "shipped":{
+		"week_1": 30,
+		"week_2":30,
+		"week_3": 20,
+		"week_4":25,
+		 "week_5":25,
+		 "week_6":30
+	  },
+	  "cancelled":{
+		"week_1": 10,
+		"week_2":5,
+		"week_3": 15,
+		"week_4":5,
+		"week_5":10,
+		"week_6":7
+	  }
+  
+  },
+  "total":95,
+  "error":
+  {
+  "code" : 0,
+  "msg":"success"
+
+  }
+}

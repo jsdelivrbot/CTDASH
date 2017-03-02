@@ -1,0 +1,38 @@
+{
+  "name": "px-percent-circle",
+  "version": "0.2.3",
+  "main": [
+    "px-percent-circle.html"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "gulpfile.js",
+    "sass",
+    "bower_components",
+    "node_modules",
+    "test",
+    "scripts",
+    ".github",
+    "px-percent-circle.png",
+    "HISTORY.md",
+    "CONTRIBUTING.md",
+    "OSS_Notice.pdf",
+    ".editorconfig",
+    ".jshint",
+    ".gitignore",
+    "LICENSE.md",
+    "gulpfile.js",
+    "monogram-wdmk.png",
+    "README.md",
+    "wct.conf.json"
+  ],
+  "dependencies": {
+    "polymer": "^1.6.1",
+    "px-theme": "^2.0.1"
+  },
+  "devDependencies": {
+    "px-starter-kit-design": "^0.7.0",
+    "px-demo": "^1.0.6"
+  }
+}

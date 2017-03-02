@@ -1,0 +1,28 @@
+{
+  "name": "ctdash",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.8.0",
+    "px-card": "https://github.com/PredixDev/px-card.git#^0.6.6",
+    "px-percent-circle": "^0.2.3",
+    "px-simple-bar-chart": "^1.8.8",
+    "px-widget-cards": "^2.2.4",
+    "px-simple-horizontal-bar-chart": "^0.8.5",
+    "px-simple-line-chart": "^1.7.8",
+    "px-spinner": "^0.5.3",
+    "jquery": "^3.1.1",
+    "px-vis-pie-chart": "^0.4.2",
+    "px-view-header": "^0.2.3",
+    "px-tooltip": "^0.10.14"
+  }
+}
