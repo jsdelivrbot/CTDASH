@@ -1,6 +1,9 @@
-var dashApp = angular.module("dashApp", ["ngRoute"]);
+angular.module('dashApp', []);
 
-dashApp.controller('dashController', function($scope,$rootScope,$http) {
+var dashApp = angular.module("dashApp");
+
+
+dashApp.controller('dashController',["$scope","$rootScope","$http", function($scope,$rootScope,$http) {
 
 	
 	$scope.fetchChartData  = function()
@@ -18,7 +21,8 @@ dashApp.controller('dashController', function($scope,$rootScope,$http) {
 	/*----------------To show percenatage------------*/
 	
 	$scope.getPercentage = function () {
-		$http({
+		
+	 	$http({
 		method: 'GET',
 		url: '../api/orderDetails.json'
 		}).then(function successCallback(response) {
@@ -43,15 +47,17 @@ dashApp.controller('dashController', function($scope,$rootScope,$http) {
 			
 		}, function errorCallback(response) {
 
-		});
+		}); 
 	}
 	
 	/*--------------To show piechart--------------------*/
 	$scope.getPiechart = function () {
-		
+		var data_arr ={};
+		var cnt_arr = [];
+		$scope.chartCount = {};
 		$http({
 		method: 'GET',
-		url: '../api/totalOrders.json'
+		url: '../api/orderDetails.json'
 		}).then(function successCallback(response) {
 			$("px-spinner").attr("finished", "true");
 			if(response.data.error.code == 0)
@@ -59,8 +65,12 @@ dashApp.controller('dashController', function($scope,$rootScope,$http) {
 					var data = response.data.orders;
 					var cnt_arr = [];
 					$.each(response.data.orders, function(key,value) {
-							cnt_arr.push(value);
+						data_arr['y'] =  key;
+						data_arr['x'] =  value;
+						cnt_arr.push(data_arr);
+						data_arr ={};
 					}); 
+				//	console.log(cnt_arr);
 				$scope.totOrder=response.data.total;
 				$scope.chartCount =cnt_arr;	// [{"x":40,"y":"Pending"},{"x":30,"y":"Processed"},{"x":20,"y":"Shipped"},{"x":2,"y":"Canceled"}];
 				$scope.show_pie_error = 0;
@@ -79,8 +89,8 @@ dashApp.controller('dashController', function($scope,$rootScope,$http) {
 	
 	$scope.getweekchart = function () {
 		
-		week_arr = [];
-		main_arr = [];
+		var week_arr = [];
+		var main_arr = [];
 		$http({
 		method: 'GET',
 		url: '../api/weekOrderData.json'
@@ -112,5 +122,5 @@ dashApp.controller('dashController', function($scope,$rootScope,$http) {
 	}
 	
 	$scope.fetchChartData(); 
-});
+}]);
 
